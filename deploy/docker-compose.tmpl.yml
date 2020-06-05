@@ -44,7 +44,3 @@ networks:
     name: ${TRAEFIK_NET_NAME:-traefik-net}
     driver: ${TRAEFIK_NET_DRIVER:-overlay}
     external: true
-
-volumes:
-  data-vol:
-    name: ${DATA_VOL_NAME:-pushgateway-vol}
