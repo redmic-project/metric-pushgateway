@@ -1,5 +1,3 @@
-version: '3.9'
-
 volumes:
   data-vol:
     name: ${DATA_VOL_NAME}
