@@ -14,6 +14,12 @@ services:
       traefik-net:
     volumes:
       - data-vol:${DATA_PATH}
+    healthcheck:
+      test: wget -q -O - http://127.0.0.1:${PORT}/-/healthy
+      interval: ${HEALTHCHECK_INTERVAL:-30s}
+      timeout: ${HEALTHCHECK_TIMEOUT:-15s}
+      retries: ${HEALTHCHECK_RETRIES:-5}
+      start_period: ${HEALTHCHECK_START_PERIOD:-1m}
     deploy:
       mode: replicated
       replicas: ${REPLICAS:-1}
