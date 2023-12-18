@@ -13,7 +13,7 @@ services:
     volumes:
       - data-vol:${DATA_PATH}
     healthcheck:
-      test: '[ ${HEALTHCHECK_DISABLE:-false} != false ] && true || wget -q -O - http://127.0.0.1:${PORT}/-/healthy'
+      test: wget -q -O - http://127.0.0.1:${PORT}/-/healthy
       interval: ${HEALTHCHECK_INTERVAL:-30s}
       timeout: ${HEALTHCHECK_TIMEOUT:-15s}
       retries: ${HEALTHCHECK_RETRIES:-5}
