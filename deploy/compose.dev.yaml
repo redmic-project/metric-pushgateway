@@ -3,6 +3,6 @@ volumes:
     name: ${DATA_VOL_NAME}
     driver: ${VOL_DRIVER:-local}
     driver_opts:
-      type: ${VOL_TYPE:-nfs4}
-      o: addr=${VOL_ADDR:-127.0.0.1},${VOL_OPTS:-rw,nolock,noatime,tcp,rsize=8192,wsize=8192,timeo=14}
-      device: ${DATA_VOL_DEVICE:-:/pushgateway-vol/}
+      type: ${VOL_TYPE}
+      o: addr=${VOL_ADDR},vers=${VOL_VERS},${VOL_OPTS}
+      device: :${VOL_DEVICE_PREFIX}${DATA_VOL_DEVICE:-/pushgateway-vol/}
